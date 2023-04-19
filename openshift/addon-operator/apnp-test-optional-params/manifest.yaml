@@ -1,0 +1,74 @@
+apiVersion: manifests.package-operator.run/v1alpha1
+kind: PackageManifest
+metadata:
+  name: nginx
+spec:
+  scopes:
+  - Cluster
+  phases:
+  - name: ns
+  - name: deploy
+  availabilityProbes:
+  - probes:
+    - condition:
+        type: Available
+        status: "True"
+    - fieldsEqual:
+        fieldA: .status.updatedReplicas
+        fieldB: .status.replicas
+    selector:
+      kind:
+        group: apps
+        kind: Deployment
+  config:
+    openAPIV3Schema:
+      type: object
+      properties:
+        addons:
+          type: object
+          description: "contains configuration passed by Addon Operator"
+          properties:
+            v1alpha1:
+              type: object
+              description: "contains configuration for addons.managed.openshift.io/v1alpha1"
+              properties:
+                deadMansSnitchUrl:
+                  type: string
+                  description: "Dead Man's Snitch URL"
+                pagerDutyKey:
+                  type: string
+                  description: "PagerDuty API key"
+test:
+  template:
+  - name: namespace-n-config-n
+    context:
+      package:
+        metadata:
+          name: test-name
+  - name: namespace-n-config-y
+    context:
+      package:
+        metadata:
+          name: test-name
+      config:
+        addons:
+          v1alpha1:
+            deadMansSnitchUrl: https://example.com/test-snitch-url
+            pagerDutyKey: 1a2b3c4d5e6f
+  - name: namespace-y-config-n
+    context:
+      package:
+        metadata:
+          name: test-name
+          namespace: test-namespace
+  - name: namespace-y-config-y
+    context:
+      package:
+        metadata:
+          name: test-name
+          namespace: test-namespace
+      config:
+        addons:
+          v1alpha1:
+            deadMansSnitchUrl: https://example.com/test-snitch-url
+            pagerDutyKey: 1a2b3c4d5e6f
