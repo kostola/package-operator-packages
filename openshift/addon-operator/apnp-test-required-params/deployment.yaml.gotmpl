@@ -5,7 +5,7 @@ metadata:
 {{- if .package.metadata.namespace }}
   namespace: "{{.package.metadata.namespace}}"
 {{- else }}
-  namespace: apnp-test-optional-params
+  namespace: apnp-test-required-params
 {{- end }}
   labels:
     app.kubernetes.io/name: nginx
@@ -31,6 +31,6 @@ spec:
             - containerPort: 80
           env:
             - name: MY_SNITCH_URL
-              value: "{{- if index .config "addons" -}}{{- if .config.addons.v1alpha1 -}}{{ .config.addons.v1alpha1.deadMansSnitchUrl}}{{- end -}}{{- end -}}"
+              value: "{{- if index .config "addons" -}}{{- if .config.addons.v1alpha1 -}}{{ index .config.addons.v1alpha1 "deadMansSnitchUrl" }}{{- end -}}{{- end -}}"
             - name: MY_PAGERDUTY_KEY
-              value: "{{- if index .config "addons" -}}{{- if .config.addons.v1alpha1 -}}{{ .config.addons.v1alpha1.pagerDutyKey}}{{- end -}}{{- end -}}"
+              value: "{{- if index .config "addons" -}}{{- if .config.addons.v1alpha1 -}}{{ index .config.addons.v1alpha1 "pagerDutyKey" }}{{- end -}}{{- end -}}"
