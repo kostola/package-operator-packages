@@ -5,6 +5,7 @@ metadata:
 spec:
   scopes:
   - Cluster
+  - Namespaced
   phases:
   - name: ns
   - name: deploy
