@@ -31,6 +31,6 @@ spec:
             - containerPort: 80
           env:
             - name: MY_SNITCH_URL
-              value: "{{- if index .config "addons" -}}{{- if .config.addons.v1alpha1 -}}{{ index .config.addons.v1alpha1 "deadMansSnitchUrl" }}{{- end -}}{{- end -}}"
+              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "deadMansSnitchUrl" }}{{- end -}}"
             - name: MY_PAGERDUTY_KEY
-              value: "{{- if index .config "addons" -}}{{- if .config.addons.v1alpha1 -}}{{ index .config.addons.v1alpha1 "pagerDutyKey" }}{{- end -}}{{- end -}}"
+              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "pagerDutyKey" }}{{- end -}}"
