@@ -1,2 +1,2 @@
-openshift/addon-operator/apnp-test-optional-params|quay.io/alcosta/package-operator-packages/openshift/addon-operator/apnp-test-optional-params:v1.0
-openshift/addon-operator/apnp-test-required-params|quay.io/alcosta/package-operator-packages/openshift/addon-operator/apnp-test-required-params:v1.0
+openshift/addon-operator/apnp-test-optional-params|quay.io/alcosta/package-operator-packages/openshift/addon-operator/apnp-test-optional-params:v2.0
+openshift/addon-operator/apnp-test-required-params|quay.io/alcosta/package-operator-packages/openshift/addon-operator/apnp-test-required-params:v2.0

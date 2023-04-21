@@ -5,7 +5,7 @@ metadata:
 {{- if .package.metadata.namespace }}
   namespace: "{{.package.metadata.namespace}}"
 {{- else }}
-  namespace: apnp-test-required-params
+  namespace: default
 {{- end }}
   labels:
     app.kubernetes.io/name: nginx

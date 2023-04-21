@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: apnp-test-optional-params
-  annotations:
-    package-operator.run/phase: ns

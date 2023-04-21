@@ -15,6 +15,9 @@ do
   echo "===== Processing dir='$pkg_dir' tag='$pkg_tag'"
   rm -f "$pkg_temp_file"
 
+  echo "----- Validate package..."
+  kubectl package validate "$pkg_dir"
+
   echo "----- Building image..."
   kubectl package build -t "$pkg_tag" -o "$pkg_temp_file" "$pkg_dir"
 
