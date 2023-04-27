@@ -26,7 +26,15 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: MY_SNITCH_URL
+            - name: MY_ADDON_PARAMETERS
+              value: ''
+            - name: MY_CLUSTER_ID
+              value: ""
+            - name: MY_DEAD_MANS_SNITCH_URL
+              value: ""
+            - name: MY_OCM_CLUSTER_ID
               value: ""
             - name: MY_PAGERDUTY_KEY
+              value: ""
+            - name: MY_TARGET_NAMESPACE
               value: ""

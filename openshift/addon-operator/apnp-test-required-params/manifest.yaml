@@ -29,15 +29,32 @@ spec:
           type: object
           description: "contains configuration passed by Addon Operator"
           properties:
+            addonParameters:
+              type: object
+              description: "Addon Parameters"
+              x-kubernetes-preserve-unknown-fields: true
+            clusterID:
+              type: string
+              description: "Cluster ID"
             deadMansSnitchUrl:
               type: string
               description: "Dead Man's Snitch URL"
+            ocmClusterID:
+              type: string
+              description: "OCM Cluster ID"
             pagerDutyKey:
               type: string
               description: "PagerDuty API key"
+            targetNamespace:
+              type: string
+              description: "Target Namespace"
           required:
+            - addonParameters
+            - clusterID
             - deadMansSnitchUrl
+            - ocmClusterID
             - pagerDutyKey
+            - targetNamespace
       required:
         - addonsv1
 test:
@@ -49,8 +66,14 @@ test:
           name: test-name
       config:
         addonsv1:
+          addonParameters:
+            param1: hey
+            param2: 420
+          clusterID: ABCD1234
           deadMansSnitchUrl: https://example.com/test-snitch-url
+          ocmClusterID: EFGH5678
           pagerDutyKey: 1a2b3c4d5e6f
+          targetNamespace: default
   - name: namespace-y
     context:
       package:
@@ -59,5 +82,11 @@ test:
           namespace: test-namespace
       config:
         addonsv1:
+          addonParameters:
+            param1: hey
+            param2: 420
+          clusterID: ABCD1234
           deadMansSnitchUrl: https://example.com/test-snitch-url
+          ocmClusterID: EFGH5678
           pagerDutyKey: 1a2b3c4d5e6f
+          targetNamespace: test-namespace

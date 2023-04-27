@@ -30,7 +30,15 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: MY_SNITCH_URL
+            - name: MY_ADDON_PARAMETERS
+              value: '{{- if index .config "addonsv1" -}}{{ toJson (index .config.addonsv1 "addonParameters") }}{{- end -}}'
+            - name: MY_CLUSTER_ID
+              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "clusterID" }}{{- end -}}"
+            - name: MY_DEAD_MANS_SNITCH_URL
               value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "deadMansSnitchUrl" }}{{- end -}}"
+            - name: MY_OCM_CLUSTER_ID
+              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "ocmClusterID" }}{{- end -}}"
             - name: MY_PAGERDUTY_KEY
               value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "pagerDutyKey" }}{{- end -}}"
+            - name: MY_TARGET_NAMESPACE
+              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "targetNamespace" }}{{- end -}}"
