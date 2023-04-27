@@ -29,7 +29,7 @@ spec:
           type: object
           description: "contains configuration passed by Addon Operator"
           properties:
-            addonParameters:
+            parameters:
               type: object
               description: "Addon Parameters"
               x-kubernetes-preserve-unknown-fields: true
@@ -49,7 +49,7 @@ spec:
               type: string
               description: "Target Namespace"
           required:
-            - addonParameters
+            - parameters
             - clusterID
             - deadMansSnitchUrl
             - ocmClusterID
@@ -66,13 +66,13 @@ test:
           name: test-name
       config:
         addonsv1:
-          addonParameters:
-            param1: hey
-            param2: 420
           clusterID: ABCD1234
           deadMansSnitchUrl: https://example.com/test-snitch-url
           ocmClusterID: EFGH5678
           pagerDutyKey: 1a2b3c4d5e6f
+          parameters:
+            param1: hey
+            param2: 420
           targetNamespace: default
   - name: namespace-y
     context:
@@ -82,11 +82,11 @@ test:
           namespace: test-namespace
       config:
         addonsv1:
-          addonParameters:
-            param1: hey
-            param2: 420
           clusterID: ABCD1234
           deadMansSnitchUrl: https://example.com/test-snitch-url
           ocmClusterID: EFGH5678
           pagerDutyKey: 1a2b3c4d5e6f
+          parameters:
+            param1: hey
+            param2: 420
           targetNamespace: test-namespace

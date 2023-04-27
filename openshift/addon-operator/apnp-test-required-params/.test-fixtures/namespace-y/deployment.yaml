@@ -26,8 +26,6 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: MY_ADDON_PARAMETERS
-              value: '{"param1":"hey","param2":420}'
             - name: MY_CLUSTER_ID
               value: "ABCD1234"
             - name: MY_DEAD_MANS_SNITCH_URL
@@ -36,5 +34,7 @@ spec:
               value: "EFGH5678"
             - name: MY_PAGERDUTY_KEY
               value: "1a2b3c4d5e6f"
+            - name: MY_PARAMETERS
+              value: '{"param1":"hey","param2":420}'
             - name: MY_TARGET_NAMESPACE
               value: "test-namespace"
