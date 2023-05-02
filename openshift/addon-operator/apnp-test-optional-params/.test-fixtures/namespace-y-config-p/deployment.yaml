@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "test-name"
+  namespace: "test-namespace"
+  labels:
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/instance: "test-name"
+  annotations:
+    package-operator.run/phase: deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nginx
+      app.kubernetes.io/instance: "test-name"
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nginx
+        app.kubernetes.io/instance: "test-name"
+    spec:
+      containers:
+        - name: nginx
+          image: "nginx:1.23.4-alpine"
+          ports:
+            - containerPort: 80
+          env:
+            - name: MY_CLUSTER_ID
+              value: "ABCD1234"
+            - name: MY_DEAD_MANS_SNITCH_URL
+              value: ""
+            - name: MY_OCM_CLUSTER_ID
+              value: "EFGH5678"
+            - name: MY_PAGERDUTY_KEY
+              value: ""
+            - name: MY_PARAMETERS
+              value: ''
+            - name: MY_TARGET_NAMESPACE
+              value: "test-namespace"

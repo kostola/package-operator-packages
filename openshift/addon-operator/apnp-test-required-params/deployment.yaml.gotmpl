@@ -31,14 +31,14 @@ spec:
             - containerPort: 80
           env:
             - name: MY_CLUSTER_ID
-              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "clusterID" }}{{- end -}}"
+              value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "clusterID" -}}{{ index .config.addonsv1 "clusterID" }}{{- end -}}{{- end -}}"
             - name: MY_DEAD_MANS_SNITCH_URL
-              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "deadMansSnitchUrl" }}{{- end -}}"
+              value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "deadMansSnitchUrl" -}}{{ index .config.addonsv1 "deadMansSnitchUrl" }}{{- end -}}{{- end -}}"
             - name: MY_OCM_CLUSTER_ID
-              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "ocmClusterID" }}{{- end -}}"
+              value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "ocmClusterID" -}}{{ index .config.addonsv1 "ocmClusterID" }}{{- end -}}{{- end -}}"
             - name: MY_PAGERDUTY_KEY
-              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "pagerDutyKey" }}{{- end -}}"
+              value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "pagerDutyKey" -}}{{ index .config.addonsv1 "pagerDutyKey" }}{{- end -}}{{- end -}}"
             - name: MY_PARAMETERS
-              value: '{{- if index .config "addonsv1" -}}{{ toJson (index .config.addonsv1 "parameters") }}{{- end -}}'
+              value: '{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "parameters" -}}{{ toJson (index .config.addonsv1 "parameters") }}{{- end -}}{{- end -}}'
             - name: MY_TARGET_NAMESPACE
-              value: "{{- if index .config "addonsv1" -}}{{ index .config.addonsv1 "targetNamespace" }}{{- end -}}"
+              value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "targetNamespace" -}}{{ index .config.addonsv1 "targetNamespace" }}{{- end -}}{{- end -}}"

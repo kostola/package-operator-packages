@@ -55,6 +55,16 @@ test:
       package:
         metadata:
           name: test-name
+  - name: namespace-n-config-p
+    context:
+      package:
+        metadata:
+          name: test-name
+      config:
+        addonsv1:
+          clusterID: ABCD1234
+          ocmClusterID: EFGH5678
+          targetNamespace: default
   - name: namespace-n-config-y
     context:
       package:
@@ -76,6 +86,17 @@ test:
         metadata:
           name: test-name
           namespace: test-namespace
+  - name: namespace-y-config-p
+    context:
+      package:
+        metadata:
+          name: test-name
+          namespace: test-namespace
+      config:
+        addonsv1:
+          clusterID: ABCD1234
+          ocmClusterID: EFGH5678
+          targetNamespace: test-namespace
   - name: namespace-y-config-y
     context:
       package:
