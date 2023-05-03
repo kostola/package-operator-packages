@@ -52,6 +52,7 @@ spec:
             - parameters
             - clusterID
             - deadMansSnitchUrl
+            - ocmClusterID
             - pagerDutyKey
             - targetNamespace
       required:
