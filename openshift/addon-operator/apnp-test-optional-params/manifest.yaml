@@ -38,6 +38,9 @@ spec:
             ocmClusterID:
               type: string
               description: "OCM Cluster ID"
+            ocmClusterName:
+              type: string
+              description: "OCM Cluster Name"
             pagerDutyKey:
               type: string
               description: "PagerDuty API key"
@@ -64,6 +67,7 @@ test:
         addonsv1:
           clusterID: ABCD1234
           ocmClusterID: EFGH5678
+          ocmClusterName: test-ocm-cluster
           targetNamespace: default
   - name: namespace-n-config-y
     context:
@@ -75,6 +79,7 @@ test:
           clusterID: ABCD1234
           deadMansSnitchUrl: https://example.com/test-snitch-url
           ocmClusterID: EFGH5678
+          ocmClusterName: test-ocm-cluster
           pagerDutyKey: 1a2b3c4d5e6f
           parameters:
             param1: hey
@@ -96,6 +101,7 @@ test:
         addonsv1:
           clusterID: ABCD1234
           ocmClusterID: EFGH5678
+          ocmClusterName: test-ocm-cluster
           targetNamespace: test-namespace
   - name: namespace-y-config-y
     context:
@@ -108,6 +114,7 @@ test:
           clusterID: ABCD1234
           deadMansSnitchUrl: https://example.com/test-snitch-url
           ocmClusterID: EFGH5678
+          ocmClusterName: test-ocm-cluster
           pagerDutyKey: 1a2b3c4d5e6f
           parameters:
             param1: hey

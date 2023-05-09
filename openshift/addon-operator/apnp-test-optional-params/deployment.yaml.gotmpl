@@ -36,6 +36,8 @@ spec:
               value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "deadMansSnitchUrl" -}}{{ index .config.addonsv1 "deadMansSnitchUrl" }}{{- end -}}{{- end -}}"
             - name: MY_OCM_CLUSTER_ID
               value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "ocmClusterID" -}}{{ index .config.addonsv1 "ocmClusterID" }}{{- end -}}{{- end -}}"
+            - name: MY_OCM_CLUSTER_NAME
+              value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "ocmClusterName" -}}{{ index .config.addonsv1 "ocmClusterName" }}{{- end -}}{{- end -}}"
             - name: MY_PAGERDUTY_KEY
               value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "pagerDutyKey" -}}{{ index .config.addonsv1 "pagerDutyKey" }}{{- end -}}{{- end -}}"
             - name: MY_PARAMETERS

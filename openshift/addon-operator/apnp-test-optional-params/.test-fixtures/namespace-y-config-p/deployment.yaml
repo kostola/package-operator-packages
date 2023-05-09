@@ -32,6 +32,8 @@ spec:
               value: ""
             - name: MY_OCM_CLUSTER_ID
               value: "EFGH5678"
+            - name: MY_OCM_CLUSTER_NAME
+              value: "test-ocm-cluster"
             - name: MY_PAGERDUTY_KEY
               value: ""
             - name: MY_PARAMETERS

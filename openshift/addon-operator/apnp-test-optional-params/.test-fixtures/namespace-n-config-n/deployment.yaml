@@ -32,6 +32,8 @@ spec:
               value: ""
             - name: MY_OCM_CLUSTER_ID
               value: ""
+            - name: MY_OCM_CLUSTER_NAME
+              value: ""
             - name: MY_PAGERDUTY_KEY
               value: ""
             - name: MY_PARAMETERS
