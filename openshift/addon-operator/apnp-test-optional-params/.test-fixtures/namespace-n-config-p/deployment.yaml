@@ -38,5 +38,7 @@ spec:
               value: ""
             - name: MY_PARAMETERS
               value: ''
+            - name: MY_SMTP
+              value: ''
             - name: MY_TARGET_NAMESPACE
               value: "default"

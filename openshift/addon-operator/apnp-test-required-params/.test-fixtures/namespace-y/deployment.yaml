@@ -38,5 +38,7 @@ spec:
               value: "1a2b3c4d5e6f"
             - name: MY_PARAMETERS
               value: '{"param1":"hey","param2":420}'
+            - name: MY_SMTP
+              value: '{"host":"clusterID","password":"pwd","port":"1111","tls":"true","username":"user"}'
             - name: MY_TARGET_NAMESPACE
               value: "test-namespace"

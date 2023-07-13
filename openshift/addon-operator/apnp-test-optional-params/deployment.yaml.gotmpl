@@ -42,5 +42,7 @@ spec:
               value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "pagerDutyKey" -}}{{ index .config.addonsv1 "pagerDutyKey" }}{{- end -}}{{- end -}}"
             - name: MY_PARAMETERS
               value: '{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "parameters" -}}{{ toJson (index .config.addonsv1 "parameters") }}{{- end -}}{{- end -}}'
+            - name: MY_SMTP
+              value: '{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "smtp" -}}{{ toJson (index .config.addonsv1 "smtp") }}{{- end -}}{{- end -}}'
             - name: MY_TARGET_NAMESPACE
               value: "{{- if index .config "addonsv1" -}}{{- if index .config.addonsv1 "targetNamespace" -}}{{ index .config.addonsv1 "targetNamespace" }}{{- end -}}{{- end -}}"

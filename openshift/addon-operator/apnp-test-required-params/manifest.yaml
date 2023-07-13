@@ -48,6 +48,10 @@ spec:
             pagerDutyKey:
               type: string
               description: "PagerDuty API key"
+            smtp:
+              type: object
+              description: "SendGrid Configuration"
+              x-kubernetes-preserve-unknown-fields: true
             targetNamespace:
               type: string
               description: "Target Namespace"
@@ -58,6 +62,7 @@ spec:
             - ocmClusterID
             - ocmClusterName
             - pagerDutyKey
+            - smtp
             - targetNamespace
       required:
         - addonsv1
@@ -78,6 +83,12 @@ test:
           parameters:
             param1: hey
             param2: 420
+          smtp:
+            host: clusterID
+            password: pwd
+            port: "1111"
+            tls: "true"
+            username: user
           targetNamespace: default
   - name: namespace-y
     context:
@@ -95,4 +106,10 @@ test:
           parameters:
             param1: hey
             param2: 420
+          smtp:
+            host: clusterID
+            password: pwd
+            port: "1111"
+            tls: "true"
+            username: user
           targetNamespace: test-namespace
